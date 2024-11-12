@@ -7,11 +7,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Mostrar mensaje
-        run: echo "Hola GM Actions"
       - name: Bajar codigo
         uses: actions/checkout@v4
       - name: Probar codigo
         run: python3 main.py
-        
+      - name: Crear imagen Docker
+        run: docker build -t juabel/holamundo .
+      - name: Probar contenedor
+        run: docker run juabel/holamundo
       
